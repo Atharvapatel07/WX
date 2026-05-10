@@ -1,0 +1,50 @@
+# CHECK GIT VERSION
+git --version
+
+# CREATE PROJECT FOLDER
+mkdir practical3
+
+# OPEN PROJECT FOLDER
+cd practical3
+
+# CREATE HTML FILE
+touch index3.html
+
+# OPEN VS CODE
+code .
+
+# INITIALIZE GIT REPOSITORY
+git init
+
+# CHECK STATUS
+git status
+
+# ADD FILES
+git add .
+
+# COMMIT FILES
+git commit -m "First Commit"
+
+# CONFIGURE USERNAME (ONLY FIRST TIME)
+git config --global user.name "Atharva"
+
+# CONFIGURE EMAIL (ONLY FIRST TIME)
+git config --global user.email "yourgmail@gmail.com"
+
+# CONNECT GITHUB REPOSITORY
+git remote add origin https://github.com/username/repository.git
+
+# CHANGE BRANCH NAME
+git branch -M main
+
+# PUSH CODE TO GITHUB
+git push -u origin main
+
+# CHECK REMOTE REPOSITORY
+git remote -v
+
+# PULL LATEST CHANGES
+git pull
+
+# CLONE REPOSITORY
+git clone https://github.com/username/repository.git
