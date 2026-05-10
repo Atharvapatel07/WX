@@ -1,27 +1,47 @@
+# =========================================================
+# PRACTICAL 4 — DOCKER CONTAINER ENVIRONMENT
+# =========================================================
+
+# UPDATE UBUNTU
 sudo apt update
 
+# INSTALL DOCKER
 sudo apt install docker.io
 
+# CHECK DOCKER VERSION
 docker --version
 
+# START DOCKER SERVICE
 sudo systemctl start docker
 
+# ENABLE DOCKER
 sudo systemctl enable docker
 
+# CHECK DOCKER STATUS
 sudo systemctl status docker
 
+# DOWNLOAD UBUNTU IMAGE
 sudo docker pull ubuntu
 
+# VIEW DOCKER IMAGES
 sudo docker images
 
+# RUN UBUNTU CONTAINER
 sudo docker run -it ubuntu
 
+# CHECK RUNNING CONTAINERS
 sudo docker ps
 
+# CHECK ALL CONTAINERS
 sudo docker ps -a
 
+# EXIT CONTAINER
 exit
 
+# REMOVE CONTAINER
 sudo docker rm CONTAINER_ID
 
+# REMOVE IMAGE
 sudo docker rmi ubuntu
+
+
