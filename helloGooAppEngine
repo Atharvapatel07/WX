@@ -1,0 +1,283 @@
+# =========================================================
+# PRACTICAL 9 — GOOGLE APP ENGINE
+# HELLO WORLD APPLICATION USING PYTHON
+
+# STEP 1 — UPDATE UBUNTU
+# =========================================================
+
+sudo apt update
+
+
+# =========================================================
+# STEP 2 — INSTALL GOOGLE CLOUD CLI
+# =========================================================
+
+sudo snap install google-cloud-cli --classic
+
+
+# =========================================================
+# STEP 3 — CHECK GCLOUD VERSION
+# =========================================================
+
+gcloud version
+
+
+# =========================================================
+# STEP 4 — LOGIN TO GOOGLE CLOUD
+# =========================================================
+
+gcloud auth login
+
+
+# ---------------------------------------------------------
+# Browser opens
+# Login using Gmail account
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 5 — INITIALIZE GOOGLE CLOUD
+# =========================================================
+
+gcloud init
+
+
+# ---------------------------------------------------------
+# SELECT:
+# 1 → Account
+# 2 → Existing project OR create new project
+#
+# IF CREATING NEW PROJECT:
+# Enter simple lowercase name
+#
+# Example:
+# atharva-project
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 6 — CREATE PROJECT FOLDER
+# =========================================================
+
+mkdir helloapp
+
+
+# =========================================================
+# STEP 7 — OPEN PROJECT FOLDER
+# =========================================================
+
+cd helloapp
+
+
+# =========================================================
+# STEP 8 — CREATE PYTHON FILE
+# =========================================================
+
+touch main.py
+
+
+# =========================================================
+# STEP 9 — CREATE app.yaml FILE
+# =========================================================
+
+touch app.yaml
+
+
+# =========================================================
+# STEP 10 — OPEN VS CODE
+# =========================================================
+
+code .
+
+
+# =========================================================
+# STEP 11 — WRITE PYTHON CODE
+# OPEN main.py
+# =========================================================
+
+
+# ---------------------------------------------------------
+# PASTE THIS CODE IN main.py
+# ---------------------------------------------------------
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def hello():
+    return "Hello World"
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080)
+
+
+# ---------------------------------------------------------
+# EXPLANATION
+# ---------------------------------------------------------
+
+# Flask:
+# Python web framework.
+
+# app = Flask(__name__)
+# Creates Flask application.
+
+# @app.route('/')
+# Defines homepage route.
+
+# return "Hello World"
+# Displays output on browser.
+
+# app.run()
+# Starts web server.
+
+
+# =========================================================
+# STEP 12 — WRITE app.yaml
+# OPEN app.yaml
+# =========================================================
+
+
+# ---------------------------------------------------------
+# PASTE THIS CODE IN app.yaml
+# ---------------------------------------------------------
+
+runtime: python39
+
+
+# ---------------------------------------------------------
+# EXPLANATION
+# ---------------------------------------------------------
+
+# app.yaml:
+# Configuration file for App Engine.
+
+# runtime: python39
+# Uses Python 3.9 runtime.
+
+
+# =========================================================
+# STEP 13 — INSTALL FLASK
+# =========================================================
+
+pip install flask
+
+
+# =========================================================
+# STEP 14 — RUN APPLICATION
+# =========================================================
+
+python3 main.py
+
+
+# ---------------------------------------------------------
+# OUTPUT
+# ---------------------------------------------------------
+
+# Running on:
+# http://127.0.0.1:8080
+
+
+# =========================================================
+# STEP 15 — OPEN BROWSER
+# =========================================================
+
+# Open:
+# http://localhost:8080
+
+
+# ---------------------------------------------------------
+# OUTPUT
+# ---------------------------------------------------------
+
+# Hello World
+
+
+# =========================================================
+# STEP 16 — DEPLOY APPLICATION
+# =========================================================
+
+gcloud app deploy
+
+
+# ---------------------------------------------------------
+# Uploads application to Google Cloud.
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 17 — OPEN DEPLOYED APPLICATION
+# =========================================================
+
+gcloud app browse
+
+
+# ---------------------------------------------------------
+# Opens deployed cloud application in browser.
+# ---------------------------------------------------------
+
+
+# =========================================================
+# IMPORTANT VIVA QUESTIONS
+# =========================================================
+
+# Q1. What is Google App Engine?
+# Cloud platform used to deploy applications.
+
+# Q2. What is Cloud Computing?
+# Delivering services over internet.
+
+# Q3. What is Flask?
+# Python web framework.
+
+# Q4. What is app.yaml?
+# Configuration file for App Engine.
+
+# Q5. What is gcloud CLI?
+# Command line tool for Google Cloud.
+
+# Q6. What is PaaS?
+# Platform as a Service.
+
+
+# =========================================================
+# IMPORTANT COMMANDS SUMMARY
+# =========================================================
+
+sudo apt update
+
+sudo snap install google-cloud-cli --classic
+
+gcloud version
+
+gcloud auth login
+
+gcloud init
+
+mkdir helloapp
+
+cd helloapp
+
+touch main.py
+
+touch app.yaml
+
+code .
+
+pip install flask
+
+python3 main.py
+
+gcloud app deploy
+
+gcloud app browse
+
+
+# =========================================================
+# CONCLUSION
+# =========================================================
+
+# Google App Engine was installed successfully
+# and Hello World application was created
+# and deployed using Python Flask framework.
