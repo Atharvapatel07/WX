@@ -1,0 +1,175 @@
+# =========================================================
+# PRACTICAL 8 — CREATE SIMPLE MOBILE WEBSITE
+# USING JQUERY MOBILE
+
+# STEP 1 — CREATE PROJECT FOLDER
+# =========================================================
+
+mkdir jquerymobile
+
+
+# =========================================================
+# STEP 2 — OPEN PROJECT FOLDER
+# =========================================================
+
+cd jquerymobile
+
+
+# =========================================================
+# STEP 3 — CREATE HTML FILE
+# =========================================================
+
+touch index.html
+
+
+# =========================================================
+# STEP 4 — OPEN VS CODE
+# =========================================================
+
+code .
+
+
+# =========================================================
+# STEP 5 — WRITE HTML CODE
+# OPEN index.html
+# PASTE FOLLOWING CODE
+# =========================================================
+
+
+# ---------------------------------------------------------
+# COMPLETE CODE
+# ---------------------------------------------------------
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Mobile Website</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script
+src="https://code.jquery.com/jquery-1.11.1.min.js">
+</script>
+
+<script
+src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+</script>
+
+</head>
+
+<body>
+
+
+<!-- HOME PAGE -->
+
+<div data-role="page" id="home">
+
+    <div data-role="header">
+
+        <h1>My Mobile Website</h1>
+
+    </div>
+
+
+    <div data-role="content">
+
+        <h3>Welcome to jQuery Mobile</h3>
+
+        <p>
+        This is simple mobile website.
+        </p>
+
+        <a href="#about"
+           data-role="button">
+
+           About Page
+
+        </a>
+
+    </div>
+
+
+    <div data-role="footer">
+
+        <h4>Footer Section</h4>
+
+    </div>
+
+</div>
+
+
+
+<!-- ABOUT PAGE -->
+
+<div data-role="page" id="about">
+
+    <div data-role="header">
+
+        <h1>About</h1>
+
+    </div>
+
+
+    <div data-role="content">
+
+        <p>
+        This website is created using
+        jQuery Mobile.
+        </p>
+
+        <a href="#home"
+           data-role="button">
+
+           Go Home
+
+        </a>
+
+    </div>
+
+
+    <div data-role="footer">
+
+        <h4>About Footer</h4>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
+
+# =========================================================
+# STEP 6 — SAVE FILE
+# =========================================================
+
+# Shortcut:
+Ctrl + S
+
+
+# =========================================================
+# STEP 7 — RUN WEBSITE
+# =========================================================
+
+# Open index.html in browser
+
+# OR
+
+# Right click → Open with Browser
+
+# OR
+
+# Use Live Server
+
+
+# A simple mobile website was successfully created
+# using jQuery Mobile framework with responsive
+# mobile-friendly design.
