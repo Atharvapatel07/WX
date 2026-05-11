@@ -1,0 +1,281 @@
+# PRACTICAL 11 — CREATE AWS EC2 INSTANCE
+# AND SETUP APACHE WEBSERVER
+
+
+
+
+
+# ---------------------------------------------------------
+# WHAT IS EC2?
+# ---------------------------------------------------------
+
+# EC2 = Elastic Compute Cloud
+
+# Virtual server provided by AWS.
+
+
+# ---------------------------------------------------------
+# WHAT IS APACHE?
+# ---------------------------------------------------------
+
+# Apache is webserver software used
+# to host websites/web applications.
+
+
+# =========================================================
+# STEP 1 — LOGIN TO AWS
+# =========================================================
+
+# Open browser
+
+# Go to:
+# https://aws.amazon.com
+
+# Login to AWS account.
+
+
+# =========================================================
+# STEP 2 — OPEN EC2 SERVICE
+# =========================================================
+
+# Search:
+# EC2
+
+# Open:
+# EC2 Dashboard
+
+
+# =========================================================
+# STEP 3 — CREATE EC2 INSTANCE
+# =========================================================
+
+# Click:
+# Launch Instance
+
+
+# =========================================================
+# STEP 4 — ENTER INSTANCE DETAILS
+# =========================================================
+
+# Instance Name:
+# MyServer
+
+# OS:
+# Ubuntu Server 22.04
+
+# Instance Type:
+# t2.micro
+
+
+# ---------------------------------------------------------
+# NOTE:
+# t2.micro is free tier eligible.
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 5 — CREATE KEY PAIR
+# =========================================================
+
+# Click:
+# Create new key pair
+
+# Name:
+# mykey
+
+# Download:
+# mykey.pem
+
+
+# ---------------------------------------------------------
+# IMPORTANT:
+# Save .pem file carefully.
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 6 — NETWORK SETTINGS
+# =========================================================
+
+# Allow:
+# SSH
+# HTTP
+
+# SSH:
+# Port 22
+
+# HTTP:
+# Port 80
+
+
+# =========================================================
+# STEP 7 — LAUNCH INSTANCE
+# =========================================================
+
+# Click:
+# Launch Instance
+
+
+# =========================================================
+# STEP 8 — CONNECT TO EC2 INSTANCE
+# =========================================================
+
+# Open terminal.
+
+# Go to Downloads folder.
+
+cd Downloads
+
+
+# =========================================================
+# STEP 9 — CHANGE KEY PERMISSIONS
+# =========================================================
+
+chmod 400 mykey.pem
+
+
+# =========================================================
+# STEP 10 — CONNECT USING SSH
+# =========================================================
+
+ssh -i mykey.pem ubuntu@PUBLIC_IP
+
+
+# ---------------------------------------------------------
+# EXAMPLE
+# ---------------------------------------------------------
+
+ssh -i mykey.pem ubuntu@13.232.100.10
+
+
+# ---------------------------------------------------------
+# EXPLANATION
+# ---------------------------------------------------------
+
+# ssh
+# Secure Shell command.
+
+# -i
+# Identity key option.
+
+# mykey.pem
+# Private key file.
+
+# ubuntu
+# Default AWS username.
+
+# PUBLIC_IP
+# EC2 public IP address.
+
+
+# =========================================================
+# STEP 11 — UPDATE UBUNTU
+# =========================================================
+
+sudo apt update
+
+
+# =========================================================
+# STEP 12 — INSTALL APACHE
+# =========================================================
+
+sudo apt install apache2
+
+
+# =========================================================
+# STEP 13 — START APACHE SERVER
+# =========================================================
+
+sudo systemctl start apache2
+
+
+# =========================================================
+# STEP 14 — ENABLE APACHE
+# =========================================================
+
+sudo systemctl enable apache2
+
+
+# =========================================================
+# STEP 15 — CHECK APACHE STATUS
+# =========================================================
+
+sudo systemctl status apache2
+
+
+# ---------------------------------------------------------
+# OUTPUT SHOULD SHOW:
+#
+# active (running)
+#
+# PRESS:
+# q
+# TO EXIT STATUS SCREEN
+# ---------------------------------------------------------
+
+
+# =========================================================
+# STEP 16 — OPEN WEBSITE
+# =========================================================
+
+# Open browser.
+
+# Enter:
+# http://PUBLIC_IP
+
+
+# ---------------------------------------------------------
+# OUTPUT
+# ---------------------------------------------------------
+
+# Apache2 Ubuntu Default Page displayed.
+
+
+# =========================================================
+# IMPORTANT VIVA QUESTIONS
+# =========================================================
+
+# Q1. What is AWS?
+# Cloud computing platform.
+
+# Q2. What is EC2?
+# Virtual server service of AWS.
+
+# Q3. What is Apache?
+# Webserver software.
+
+# Q4. What is SSH?
+# Secure Shell protocol.
+
+# Q5. What is .pem file?
+# Security key used to connect EC2.
+
+
+# =========================================================
+# IMPORTANT COMMANDS SUMMARY
+# =========================================================
+
+cd Downloads
+
+chmod 400 mykey.pem
+
+ssh -i mykey.pem ubuntu@PUBLIC_IP
+
+sudo apt update
+
+sudo apt install apache2
+
+sudo systemctl start apache2
+
+sudo systemctl enable apache2
+
+sudo systemctl status apache2
+
+
+# =========================================================
+# CONCLUSION
+# =========================================================
+
+# EC2 instance was successfully created
+# on AWS cloud and Apache webserver
+# was installed and configured successfully.
