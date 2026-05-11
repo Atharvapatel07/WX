@@ -1,0 +1,296 @@
+# =========================================================
+# PRACTICAL 12 — DEPLOY WEB APPLICATION
+# ON AWS EC2 INSTANCE
+# =========================================================
+
+
+# ---------------------------------------------------------
+# AIM
+# ---------------------------------------------------------
+
+# Deploy simple web application
+# on AWS EC2 instance using Apache webserver.
+
+
+# ---------------------------------------------------------
+# WHAT IS DEPLOYMENT?
+# ---------------------------------------------------------
+
+# Deployment means:
+# Uploading website/application
+# to server so users can access it online.
+
+
+# ---------------------------------------------------------
+# WHAT IS EC2?
+# ---------------------------------------------------------
+
+# EC2 = Elastic Compute Cloud
+
+# Virtual server provided by AWS.
+
+
+# ---------------------------------------------------------
+# WHAT IS APACHE?
+# ---------------------------------------------------------
+
+# Apache is webserver software used
+# to host websites.
+
+
+# =========================================================
+# STEP 1 — LOGIN TO AWS
+# =========================================================
+
+# Open:
+# https://aws.amazon.com
+
+# Login to AWS account.
+
+
+# =========================================================
+# STEP 2 — OPEN EC2 DASHBOARD
+# =========================================================
+
+# Search:
+# EC2
+
+# Open:
+# EC2 Dashboard
+
+
+# =========================================================
+# STEP 3 — CREATE EC2 INSTANCE
+# =========================================================
+
+# Click:
+# Launch Instance
+
+# Instance Name:
+# MyServer
+
+# OS:
+# Ubuntu Server
+
+# Instance Type:
+# t2.micro
+
+
+# =========================================================
+# STEP 4 — CREATE KEY PAIR
+# =========================================================
+
+# Create:
+# mykey.pem
+
+# Download key file.
+
+
+# =========================================================
+# STEP 5 — ALLOW TRAFFIC
+# =========================================================
+
+# Enable:
+# SSH → Port 22
+# HTTP → Port 80
+
+
+# =========================================================
+# STEP 6 — CONNECT TO EC2 INSTANCE
+# =========================================================
+
+cd Downloads
+
+
+# =========================================================
+# STEP 7 — CHANGE KEY PERMISSION
+# =========================================================
+
+chmod 400 mykey.pem
+
+
+# =========================================================
+# STEP 8 — CONNECT USING SSH
+# =========================================================
+
+ssh -i mykey.pem ubuntu@PUBLIC_IP
+
+
+# ---------------------------------------------------------
+# EXAMPLE
+# ---------------------------------------------------------
+
+ssh -i mykey.pem ubuntu@13.232.100.10
+
+
+# =========================================================
+# STEP 9 — UPDATE UBUNTU
+# =========================================================
+
+sudo apt update
+
+
+# =========================================================
+# STEP 10 — INSTALL APACHE
+# =========================================================
+
+sudo apt install apache2
+
+
+# =========================================================
+# STEP 11 — START APACHE
+# =========================================================
+
+sudo systemctl start apache2
+
+
+# =========================================================
+# STEP 12 — ENABLE APACHE
+# =========================================================
+
+sudo systemctl enable apache2
+
+
+# =========================================================
+# STEP 13 — CREATE HTML FILE
+# =========================================================
+
+cd /var/www/html
+
+
+# =========================================================
+# STEP 14 — REMOVE DEFAULT FILE
+# =========================================================
+
+sudo rm index.html
+
+
+# =========================================================
+# STEP 15 — CREATE NEW WEBPAGE
+# =========================================================
+
+sudo nano index.html
+
+
+# =========================================================
+# STEP 16 — WRITE HTML CODE
+# =========================================================
+
+
+# ---------------------------------------------------------
+# PASTE THIS CODE
+# ---------------------------------------------------------
+
+<html>
+
+<head>
+
+<title>AWS Website</title>
+
+</head>
+
+<body>
+
+<h1>
+Hello from AWS EC2 Server
+</h1>
+
+<p>
+Website deployed successfully.
+</p>
+
+</body>
+
+</html>
+
+
+# =========================================================
+# STEP 17 — SAVE FILE
+# =========================================================
+
+# Ctrl + O
+# ENTER
+
+# Ctrl + X
+
+
+# =========================================================
+# STEP 18 — RESTART APACHE
+# =========================================================
+
+sudo systemctl restart apache2
+
+
+# =========================================================
+# STEP 19 — OPEN WEBSITE
+# =========================================================
+
+# Open browser.
+
+# Enter:
+# http://PUBLIC_IP
+
+
+# ---------------------------------------------------------
+# OUTPUT
+# ---------------------------------------------------------
+
+# Hello from AWS EC2 Server
+
+# Website deployed successfully.
+
+
+# =========================================================
+# IMPORTANT VIVA QUESTIONS
+# =========================================================
+
+# Q1. What is deployment?
+# Uploading application to server.
+
+# Q2. What is EC2?
+# AWS virtual server.
+
+# Q3. What is Apache?
+# Webserver software.
+
+# Q4. What is Public IP?
+# Internet accessible server address.
+
+# Q5. What is SSH?
+# Secure Shell protocol.
+
+
+# =========================================================
+# IMPORTANT COMMANDS SUMMARY
+# =========================================================
+
+cd Downloads
+
+chmod 400 mykey.pem
+
+ssh -i mykey.pem ubuntu@PUBLIC_IP
+
+sudo apt update
+
+sudo apt install apache2
+
+sudo systemctl start apache2
+
+sudo systemctl enable apache2
+
+cd /var/www/html
+
+sudo rm index.html
+
+sudo nano index.html
+
+sudo systemctl restart apache2
+
+
+# =========================================================
+# CONCLUSION
+# =========================================================
+
+# Web application was successfully
+# deployed on AWS EC2 instance
+# using Apache webserver.
